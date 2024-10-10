@@ -1,0 +1,13 @@
+{
+  "customer": {
+    "id": 789654123,
+    "name": "John Raketa"
+  },
+  "court": {
+    "id": 2
+  },
+  "start": "10:00:00",
+  "ending": "11:00:00",
+  "date": "2024-10-10",
+  "isDouble": false
+}

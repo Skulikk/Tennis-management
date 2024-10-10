@@ -1,0 +1,56 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Skulikk
+      preConditions:
+        - onFail: MARK_RAN
+          not:
+            tableExists:
+              tableName: surfaces
+      changes:
+        - createTable:
+            tableName: surfaces
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: price
+                  type: INTEGER
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 2
+      author: Skulikk
+      changes:
+        - insert:
+            tableName: surfaces
+            columns:
+              - column:
+                  name: price
+                  valueNumeric: 5
+              - column:
+                  name: name
+                  value: "antuka"
+  - changeSet:
+      id: 12
+      author: Skulikk
+      changes:
+        - insert:
+            tableName: surfaces
+            columns:
+              - column:
+                  name: price
+                  valueNumeric: 2
+              - column:
+                  name: name
+                  value: "grass"

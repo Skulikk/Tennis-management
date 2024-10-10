@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: Skulikk
+      preConditions:
+        - onFail: MARK_RAN
+          not:
+            tableExists:
+              tableName: customers
+      changes:
+        - createTable:
+            tableName: customers
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: false
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 3
+      author: Skulikk
+      changes:
+        - insert:
+            tableName: customers
+            columns:
+              - column:
+                  name: id
+                  valueNumeric: 555666777
+              - column:
+                  name: name
+                  value: "Jakub Hráč"
